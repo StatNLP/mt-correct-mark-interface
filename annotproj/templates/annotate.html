@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/preact/8.4.2/preact.min.js"
+    integrity="sha256-PlZR9F40jop06jDR6IgvCXP2vZl4pnOdhqWDW8dqO8w=" crossorigin="anonymous"></script>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-12">
+            <div id="annotation" class="row">
+
+                <div class="col">
+                    <div class="col align-middle">
+
+                        <div class="alert alert-warning text-center">
+                            <h5>{{ instructions|replace("\n","<br/>")|safe }}</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col align-middle ">
+                            <div class="row d-flex justify-content-center text-center">
+                                <h3>Source:</h3>
+                            </div>
+                            <div class="row d-flex justify-content-center text-center">
+                                <h4>{{ source|safe }}</h4>
+                            </div>
+
+                            <div id="mountpoint" class="row text-left content-row d-flex justify-content-center"></div>
+                            <form action="/annotate" method="POST">
+                                <div>
+                                    {{ form.csrf_token }}
+                                    {{ form.annotationfield }}
+                                    {{ form.userchoice }}
+                                    {{ form.timestarted }}
+                                    {{ form.timesubmitted }}
+                                    {{ form.clicks }}
+                                    {{ form.timepaused }}
+                                    {{ form.keystrokes }}
+                                    {{ form.key }}
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>var sentence = "{{ target|safe }}";
+    var fb_type = "{{ fb_type }}";</script>
+
+
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+
+
+{% endblock content %}

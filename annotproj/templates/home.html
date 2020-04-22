@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<style type="text/css">
+  body,
+  html {
+    height: 100%;
+  }
+
+  .bg {
+    /* The image used */
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+
+
+{% if current_user.is_authenticated %}
+
+<div class="content">
+  <div class="row"></div>
+  <div class="row">
+    <div class="col-12">
+      <div class="alert alert-success">
+        You currently have {{ annotations_todo }} sentences left to annotate. :)
+      </div>
+    </div>
+  </div>
+  {% if annotations_todo == 0 %}
+  <div class="row">
+    <div class="col-12 align-middle text-center">
+      <h2>
+        Thank you for completing our annotation task.
+      </h2>
+      
+        <br/>
+        <h3>
+        To better understand the annotations and users' actions, we would ask you to please complete a short <a href="https://forms.gle/pinYeZvgZ8miu25z6">survey</a>.
+        <br/>
+        <br/>
+        Don't forget to e-mail us with your bank details in order to receive your payment.
+        </h3>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+
+{% else %}
+
+<div class="content-section">
+  <form method="POST" action="/login">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Log In</legend>
+      <div class="form-group">
+        {{ form.email.label(class="form-control-label") }}
+        {% if form.email.errors %}
+        {{ form.email(class="form-control form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.email.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %}
+        {{ form.email(class="form-control form-control-lg") }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.password.label(class="form-control-label") }}
+        {% if form.password.errors %}
+        {{ form.password(class="form-control form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.password.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %}
+        {{ form.password(class="form-control form-control-lg") }}
+        {% endif %}
+      </div>
+      <div class="form-check">
+        {{ form.remember(class="form-check-input") }}
+        {{ form.remember.label(class="form-check-label") }}
+      </div>
+    </fieldset>
+    <div class="form-group">
+      {{ form.submit(class="btn btn-outline-info") }}
+    </div>
+    <small class="text-muted ml-2">
+      <a href="#">Forgot Password?</a>
+    </small>
+  </form>
+</div>
+
+{% endif %}
+
+
+{% endblock content %}

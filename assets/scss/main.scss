@@ -1,0 +1,139 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@import "./colors";
+
+::selection{
+    background-color: $red;
+    color: $white;
+}
+
+.selected {
+    background-color: $red;
+    color: $white;
+}
+
+.selected::selection {
+    background-color: $white;
+    color: $red;
+}
+
+#myAudio {
+    width: 100%;
+    margin: 1rem;
+}
+
+#annotation {
+    margin: 1rem;
+}
+
+.evalChoice {
+    width: 100%;
+    margin: 4pt;
+}
+
+.evalLabel {
+    font-size: 16pt;
+    width: 100%;
+    padding: 4pt;
+    display: block;
+    border: 3px solid transparent;
+    border-radius: 0.25rem;
+    color: $gray-100;
+    text-align: center;
+    background-color: $gray-800;
+    transition: 0.2s;
+}
+
+.evalLabel :hover {
+    border-color: $green;
+}
+
+
+.evalSelected {
+    font-size: 16pt;
+    width: 100%;
+    padding: 4pt;
+    display: block;
+    border: 3px solid transparent;
+    border-radius: 0.25rem;
+    background-color: $green;
+    color: $gray-100;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.evalSelected :hover {
+    border-color: $gray-800;
+}
+
+
+
+#choices {
+    margin: 16pt;
+}
+
+#annotate-form {
+    text-align: center;
+}
+
+#marking {
+    text-align: center;
+    padding-top: 16pt;
+}
+
+
+
+.row {
+    margin-bottom: 1rem;
+}
+
+body, main {
+    background-color: $gray-100;
+    color: $gray-800;
+}
+
+.postedit-area {
+    border: 0;
+    background-color: $gray-100;
+    font-size: 16pt;
+    font-family: 'Times New Roman', Times, serif;
+    resize: none;
+    outline: 0;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    box-sizing: content-box;
+    overflow-y: hidden;
+    padding: 1.5rem 0;
+    resize: none;
+}
+
+.postedit-area::selection {
+    background-color: $red;
+    color: $white;
+}
+
+#markingContainer {
+    font-size: 16pt;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 1.5rem 0;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-link .active {
+    background-color: $blue;
+    color: $white;
+}
+
+.tab-active {
+    background-color: $green;
+}
+
+.translation-target {
+    padding: 1.5rem;
+    font-size: 16pt;
+    font-family: 'Times New Roman', Times, serif;
+}

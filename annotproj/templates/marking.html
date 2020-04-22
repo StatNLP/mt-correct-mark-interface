@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/preact/8.4.2/preact.min.js"
+    integrity="sha256-PlZR9F40jop06jDR6IgvCXP2vZl4pnOdhqWDW8dqO8w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+    <div class="container">
+
+            <div class="row">
+                <div class="col-12">
+                    <div id="annotation" class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            <audio id="myAudio" controls>
+                                <source src="{{ url_for('static', filename=source) }}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+        
+        
+                        <div class="row">
+                            <div class="col align-middle">
+        
+                                <div class="alert alert-warning text-center">
+                                    <h4>Please mark the text by clicking or highlighting to improve the translation.</h4>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="marking" class="col text-left"></div>
+                                <form action="/annotate" method="POST" id="annotate-form">
+                                    <div>
+                                        {{ form.csrf_token }}
+                                        {{ form.annotationfield }}
+                                        {{ form.timestarted }}
+                                        {{ form.key }}
+                                    </div>
+        
+                                    {{form.submit(class='btn btn-primary')}}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<script>var sentence = {{ target| safe }};</script>
+<script src="{{ url_for('static', filename='marking.js') }}"></script>
+
+
+{% endblock content %}
