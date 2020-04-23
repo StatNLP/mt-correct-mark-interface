@@ -1,7 +1,5 @@
 """
 Data extraction from the database after human annotation.
-
-To nathan/julia.
 """
 import argparse
 import os 

@@ -21,15 +21,6 @@ for i in range(10):
     db.session.add(newUser)
     db.session.commit()
 
-berger = User(username="User",
-    email="User@email.com",
-    password=bcrypt.generate_password_hash("password"),
-    native_language = "en",
-    german_level = "c2",
-    english_level = "c2")
-db.session.add(berger)
-db.session.commit()
-
 users = User.query.all()
 
 for i in range(200):
