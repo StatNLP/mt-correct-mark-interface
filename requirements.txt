@@ -9,5 +9,5 @@ flask-sqlalchemy==2.3.2
 flask-wtf==0.14.2
 jinja2==2.10
 sqlalchemy==1.2.18
-werkzeug==0.14.1
+werkzeug==0.15.3
 wtforms==2.2.1
