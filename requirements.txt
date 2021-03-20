@@ -7,7 +7,7 @@ flask-login==0.4.1
 flask-migrate==2.4.0
 flask-sqlalchemy==2.3.2
 flask-wtf==0.14.2
-jinja2==2.10
+jinja2==2.11.3
 sqlalchemy==1.2.18
 werkzeug==0.14.1
 wtforms==2.2.1
